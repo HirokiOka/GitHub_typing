@@ -61,6 +61,8 @@
         res.sendFile(__dirname + '/index.html');
     });
 
+    console.log(GITHUB_ACCESS_TOKEN);
+
     io.on('connection', function(socket) {
         //console.log('connected');
         getPublicGists();
