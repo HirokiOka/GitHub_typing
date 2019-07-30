@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="uft-8">
+        <title>GitHubTyping</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/prism.css">
+    </head>
+    <body>
+        <h1>GitHub Typing Game</h1>
+        <p id="lang">lang:</p>
+        <p class="info">
+            Letter count: <span id="score">0</span>,
+            Miss count: <span id="miss">0</span>
+        </p>
+        <p id="target">please wait...</p>
+        <p>
+            <pre id="pre">
+                <code id="typed"></code><code id="code"></code>
+            </pre>
+        </p>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/prism.js"></script> 
+    </body>
+</html>

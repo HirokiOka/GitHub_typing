@@ -1,0 +1,27 @@
+body {
+    padding-top: 40px;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+}
+
+pre {
+    white-space: pre;
+}
+
+#typed {
+    opacity: 0.2;
+}
+
+#target {
+    font-size: 32px;
+    letter-spacing: 3px;
+}
+
+.info {
+    color: #ccc;
+}
+
+#lang {
+    color: #ccc;
+
+}

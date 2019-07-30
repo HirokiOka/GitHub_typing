@@ -1,0 +1,17 @@
+{
+  "name": "github-typing",
+  "version": "1.0.0",
+  "description": "typing game using GitHub gist",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Hiroki Oka",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "socket.io": "^2.2.0"
+  }
+}
