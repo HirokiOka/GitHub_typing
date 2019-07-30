@@ -7,7 +7,7 @@
     const scoreLabel = document.getElementById('score');
     const missLabel = document.getElementById('miss');
     const langLabel = document.getElementById('lang');
-    let socket = io.connect('https://fathomless-badlands-48109.herokuapp.com/');
+    let socket = io.connect('https://calm-chamber-39150.herokuapp.com/');
     //let socket = io.connect('http://localhost:7000');
 
     let word;
