@@ -2,7 +2,6 @@
 {
 
     const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
-    //const GITHUB_ACCESS_TOKEN = process.argv[2];
     const getOptions = {
         'method': 'get',
         'contentType': 'application/json',
