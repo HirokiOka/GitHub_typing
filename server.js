@@ -1,7 +1,8 @@
 'use strict';
 {
 
-    const GITHUB_ACCESS_TOKEN = 'a0169dbb54724a1514d78427aa0356048d2986bf';
+    //const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+    const GITHUB_ACCESS_TOKEN = process.argv[2];
     const getOptions = {
         'method': 'get',
         'contentType': 'application/json',
