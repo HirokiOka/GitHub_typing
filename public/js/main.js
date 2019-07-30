@@ -3,7 +3,8 @@
     const target = document.getElementById('target');
     const typed = document.querySelector('#typed');
     const code = document.querySelector('#code');
-    const pre = document.querySelector("#pre")
+    const pre = document.querySelector("#pre");
+    const cursor = document.querySelector("#cursor");
     const scoreLabel = document.getElementById('score');
     const missLabel = document.getElementById('miss');
     const langLabel = document.getElementById('lang');
@@ -37,9 +38,10 @@
         audioElem.play();
     }
 
-    function updateTarget2() {
+    function updateTarget() {
         typed.textContent = word.substring(0, loc);
-        code.textContent = word.substring(loc, word.length);
+        cursor.textContent = word[loc];
+        code.textContent = word.substring(loc+1, word.length);
         playKeySound();
         Prism.highlightAll();
     }
@@ -76,7 +78,7 @@
         missLabel.textContent = miss;
         langLabel.textContent = 'lang:' + lang;
 
-        updateTarget2();
+        updateTarget();
         
     });
     
@@ -85,13 +87,17 @@
             return;
         }
 
-        while((word[loc] === '\n') || (word[loc] === ' ') || (word[loc] === '\t')) {
-                    loc++;
+        // while((word[loc] === '\n') || (word[loc] === ' ') || (word[loc] === '\t')) {
+        //             loc++;
+        // }
+        while((word[loc] === '\n') || (word[loc] === '\t')) {
+            loc++;
+            updateTarget();
         }
             
         if(e.key === word[loc]){
             loc++;
-            if (loc === word.length) {
+            if (loc === word.length){
                 playClearSound();
                 target.textContent = 'clear!';
                 code.textContent = '';
@@ -100,7 +106,7 @@
             score++;
             scoreLabel.textContent = score;
             
-            updateTarget2();
+            updateTarget();
             
         } else {
             if (e.keyCode !==  16) {

@@ -1,7 +1,8 @@
 'use strict';
 {
 
-    const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+    //const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+    const GITHUB_ACCESS_TOKEN = process.argv[2];
     const getOptions = {
         'method': 'get',
         'contentType': 'application/json',
@@ -60,7 +61,6 @@
         res.sendFile(__dirname + '/index.html');
     });
 
-    console.log(GITHUB_ACCESS_TOKEN);
 
     io.on('connection', function(socket) {
         //console.log('connected');
