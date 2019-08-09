@@ -8,8 +8,12 @@ pre {
     white-space: pre;
 }
 
-#typed {
+#code {
     opacity: 0.2;
+}
+
+#typed {
+    opacity: 1;
 }
 
 #target {
@@ -18,10 +22,19 @@ pre {
 }
 
 .info {
-    color: #ccc;
+    color: rgb(63, 57, 57);
 }
 
 #lang {
-    color: #ccc;
+    color: rgb(63, 57, 57);
 
+}
+
+#text-button {
+    display: block;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+    margin: auto;
+    border: 1px solid #232323;
 }

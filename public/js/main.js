@@ -28,7 +28,15 @@
 
     function playMissSound() {
         audioElem = new Audio();
-        audioElem.src = "../sound/miss.mp3";
+        let p = Math.random();
+        if (p < 1/3) {
+            audioElem.src = "../sound/cat1.mp3";
+        } else if (p < 2/3) {
+            audioElem.src = "../sound/cat2.mp3";
+        } else {
+            audioElem.src = "../sound/cat3.mp3";
+        }
+        
         audioElem.play();
     }
 
@@ -48,6 +56,7 @@
 
     socket.on('getCode', function(getCode) {
         word = getCode;
+        word = word.replace(/\t/g, ' ');
     });
 
     socket.on('getLang', function(getLang) {
@@ -79,7 +88,7 @@
         langLabel.textContent = 'lang:' + lang;
 
         updateTarget();
-        
+                
     });
     
     window.addEventListener('keydown', e => {
@@ -87,19 +96,15 @@
             return;
         }
 
-        // while((word[loc] === '\n') || (word[loc] === ' ') || (word[loc] === '\t')) {
-        //             loc++;
-        // }
-        while((word[loc] === '\n') || (word[loc] === '\t')) {
-            loc++;
-            updateTarget();
-        }
+ 
             
-        if(e.key === word[loc]){
+        if((e.key === word[loc]) || (word[loc] === '\n' && e.keyCode === 13)){
             loc++;
+
             if (loc === word.length){
+                const accuracy = score + miss === 0 ? 0 : score / (score + miss) * 100;
                 playClearSound();
-                target.textContent = 'clear!';
+                target.textContent = `clear!\n${accuracy.toFixed(1)}% accuracy!`;
                 code.textContent = '';
                 isPlaying = false;
             }
@@ -123,6 +128,9 @@
           e.preventDefault();
         }
       });
-    
+
+    document.getElementById("text-button").onclick = function() {
+        location.reload();
+    };
 
 }
