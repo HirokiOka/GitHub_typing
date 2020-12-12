@@ -95,8 +95,6 @@
         if (isPlaying !== true) {
             return;
         }
-
- 
             
         if((e.key === word[loc]) || (word[loc] === '\n' && e.keyCode === 13)){
             loc++;

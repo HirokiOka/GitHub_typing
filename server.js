@@ -7,8 +7,8 @@
         'method': 'get',
         'contentType': 'application/json',
         'headers': {
-          'Authorization': 'Bearer ' + GITHUB_ACCESS_TOKEN,
-          'User-Agent': 'request'
+            'Authorization': 'Bearer ' + GITHUB_ACCESS_TOKEN,
+            'User-Agent': 'request'
         }
     };
     const express =require('express');
@@ -62,17 +62,17 @@
     });
 
 
-    io.on('connection', function(socket) {
+    io.on('connection', (socket) => {
         //console.log('connected');
         getPublicGists();
-        setTimeout(function() {
+        setTimeout(() => {
             socket.emit('getCode', code);
             socket.emit('getLang', lang);
         }, 3500);
         
     });
 
-    http.listen(PORT, function() {
+    http.listen(PORT, () => {
         console.log('server listening. Port:' + PORT);
     });
 }
